@@ -1,6 +1,6 @@
 {
   "name": "create-stripe-nest-app",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Scaffold a production-ready Stripe payment microservice (NestJS + TypeORM + BullMQ)",
   "keywords": ["stripe", "nestjs", "payments", "scaffold", "create-app"],
   "license": "MIT",
