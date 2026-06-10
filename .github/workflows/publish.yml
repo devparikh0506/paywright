@@ -1,44 +1,64 @@
 name: Publish to npm
 
+# Publishes whenever a push to main carries a packages/cli version that has
+# no tag yet — then creates the matching v<version> tag. Bumping the version
+# in package.json IS the release action; tags are derived, never hand-made.
 on:
   push:
-    tags:
-      - 'v*'
+    branches: [main]
 
 jobs:
-  publish:
+  release:
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: write # push the release tag
       id-token: write # npm provenance attestation
 
     steps:
       - uses: actions/checkout@v4
 
+      - name: Check whether this version is already released
+        id: version
+        run: |
+          VERSION=$(node -p "require('./packages/cli/package.json').version")
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          if git ls-remote --tags origin "refs/tags/v$VERSION" | grep -q .; then
+            echo "released=true" >> "$GITHUB_OUTPUT"
+            echo "v$VERSION already tagged — nothing to publish"
+          else
+            echo "released=false" >> "$GITHUB_OUTPUT"
+            echo "v$VERSION is new — releasing"
+          fi
+
       - uses: actions/setup-node@v4
+        if: steps.version.outputs.released == 'false'
         with:
           node-version: 22
           cache: npm
           registry-url: https://registry.npmjs.org
 
       - name: Install dependencies
+        if: steps.version.outputs.released == 'false'
         run: npm ci
 
-      - name: Verify tag matches package version
-        run: |
-          TAG_VERSION="${GITHUB_REF_NAME#v}"
-          PKG_VERSION=$(node -p "require('./packages/cli/package.json').version")
-          if [ "$TAG_VERSION" != "$PKG_VERSION" ]; then
-            echo "Tag v$TAG_VERSION does not match packages/cli version $PKG_VERSION"
-            exit 1
-          fi
-
       - name: Run tests
+        if: steps.version.outputs.released == 'false'
         run: npm test --workspace packages/template
 
       - name: Publish
         # prepack builds the CLI and syncs the template automatically
+        if: steps.version.outputs.released == 'false'
         run: npm publish --access public --provenance
         working-directory: packages/cli
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Tag the release
+        # Tag only after a successful publish, so a failed publish can be
+        # retried by re-running the workflow — the tag is the "done" marker
+        if: steps.version.outputs.released == 'false'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git tag "v${{ steps.version.outputs.version }}"
+          git push origin "v${{ steps.version.outputs.version }}"
