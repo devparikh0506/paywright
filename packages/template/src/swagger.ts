@@ -19,5 +19,11 @@ export function createOpenApiDocument(app: INestApplication): OpenAPIObject {
     .addApiKey({ type: 'apiKey', name: 'x-api-key', in: 'header' }, 'x-api-key')
     .build();
 
-  return SwaggerModule.createDocument(app, config);
+  return SwaggerModule.createDocument(app, config, {
+    // Drives generated SDK method names. Default is `CustomersController_create`
+    // → `customersControllerCreate()`. Stripping the suffix yields the cleaner
+    // `Customers_create` → `customersCreate()`, while staying globally unique.
+    operationIdFactory: (controllerKey, methodKey) =>
+      `${controllerKey.replace(/Controller$/, '')}_${methodKey}`,
+  });
 }

@@ -3,7 +3,7 @@
   "paths": {
     "/health": {
       "get": {
-        "operationId": "HealthController_check",
+        "operationId": "Health_check",
         "parameters": [],
         "responses": {
           "200": {
@@ -171,7 +171,7 @@
     },
     "/api/v1/customers": {
       "post": {
-        "operationId": "CustomersController_create",
+        "operationId": "Customers_create",
         "parameters": [],
         "requestBody": {
           "required": true,
@@ -194,7 +194,7 @@
         ]
       },
       "get": {
-        "operationId": "CustomersController_list",
+        "operationId": "Customers_list",
         "parameters": [],
         "responses": {
           "200": {
@@ -209,7 +209,7 @@
     },
     "/api/v1/customers/{id}": {
       "get": {
-        "operationId": "CustomersController_get",
+        "operationId": "Customers_get",
         "parameters": [
           {
             "name": "id",
@@ -231,7 +231,7 @@
         ]
       },
       "patch": {
-        "operationId": "CustomersController_update",
+        "operationId": "Customers_update",
         "parameters": [
           {
             "name": "id",
@@ -263,7 +263,7 @@
         ]
       },
       "delete": {
-        "operationId": "CustomersController_remove",
+        "operationId": "Customers_remove",
         "parameters": [
           {
             "name": "id",
@@ -287,7 +287,7 @@
     },
     "/api/v1/plans": {
       "post": {
-        "operationId": "PlansController_create",
+        "operationId": "Plans_create",
         "parameters": [],
         "requestBody": {
           "required": true,
@@ -310,7 +310,7 @@
         ]
       },
       "get": {
-        "operationId": "PlansController_list",
+        "operationId": "Plans_list",
         "parameters": [
           {
             "name": "activeOnly",
@@ -334,7 +334,7 @@
     },
     "/api/v1/plans/{id}": {
       "get": {
-        "operationId": "PlansController_get",
+        "operationId": "Plans_get",
         "parameters": [
           {
             "name": "id",
@@ -358,7 +358,7 @@
     },
     "/api/v1/plans/{id}/archive": {
       "post": {
-        "operationId": "PlansController_archive",
+        "operationId": "Plans_archive",
         "parameters": [
           {
             "name": "id",
@@ -382,7 +382,7 @@
     },
     "/api/v1/payments": {
       "post": {
-        "operationId": "PaymentsController_create",
+        "operationId": "Payments_create",
         "parameters": [],
         "requestBody": {
           "required": true,
@@ -405,7 +405,7 @@
         ]
       },
       "get": {
-        "operationId": "PaymentsController_list",
+        "operationId": "Payments_list",
         "parameters": [
           {
             "name": "customerId",
@@ -429,7 +429,7 @@
     },
     "/api/v1/payments/{id}": {
       "get": {
-        "operationId": "PaymentsController_get",
+        "operationId": "Payments_get",
         "parameters": [
           {
             "name": "id",
@@ -453,7 +453,7 @@
     },
     "/api/v1/payments/{id}/cancel": {
       "post": {
-        "operationId": "PaymentsController_cancel",
+        "operationId": "Payments_cancel",
         "parameters": [
           {
             "name": "id",
@@ -477,7 +477,7 @@
     },
     "/api/v1/payments/{id}/refund": {
       "post": {
-        "operationId": "PaymentsController_refund",
+        "operationId": "Payments_refund",
         "parameters": [
           {
             "name": "id",
@@ -501,7 +501,7 @@
     },
     "/api/v1/subscriptions": {
       "post": {
-        "operationId": "SubscriptionsController_create",
+        "operationId": "Subscriptions_create",
         "parameters": [],
         "requestBody": {
           "required": true,
@@ -524,7 +524,7 @@
         ]
       },
       "get": {
-        "operationId": "SubscriptionsController_list",
+        "operationId": "Subscriptions_list",
         "parameters": [
           {
             "name": "customerId",
@@ -548,7 +548,7 @@
     },
     "/api/v1/subscriptions/{id}": {
       "get": {
-        "operationId": "SubscriptionsController_get",
+        "operationId": "Subscriptions_get",
         "parameters": [
           {
             "name": "id",
@@ -570,7 +570,7 @@
         ]
       },
       "delete": {
-        "operationId": "SubscriptionsController_cancel",
+        "operationId": "Subscriptions_cancel",
         "parameters": [
           {
             "name": "id",
@@ -594,7 +594,7 @@
     },
     "/webhooks/stripe": {
       "post": {
-        "operationId": "WebhooksController_handleStripeWebhook",
+        "operationId": "Webhooks_handleStripeWebhook",
         "parameters": [
           {
             "name": "stripe-signature",
@@ -617,7 +617,7 @@
     },
     "/metrics": {
       "get": {
-        "operationId": "MetricsController_metrics",
+        "operationId": "Metrics_metrics",
         "parameters": [],
         "responses": {
           "200": {
@@ -631,7 +631,7 @@
     },
     "/api/v1/invoices": {
       "get": {
-        "operationId": "InvoicesController_list",
+        "operationId": "Invoices_list",
         "parameters": [
           {
             "name": "customerId",
@@ -655,7 +655,7 @@
     },
     "/api/v1/invoices/{id}": {
       "get": {
-        "operationId": "InvoicesController_get",
+        "operationId": "Invoices_get",
         "parameters": [
           {
             "name": "id",
