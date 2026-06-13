@@ -1,11 +1,12 @@
 {
   "name": "paykit",
   "version": "1.0.0",
-  "description": "OpenAPI client for paykit",
-  "author": "OpenAPI-Generator Contributors",
+  "description": "TypeScript client SDK for the paykit payment service",
+  "author": "Dev Parikh",
   "repository": {
     "type": "git",
-    "url": "https://github.com/GIT_USER_ID/GIT_REPO_ID.git"
+    "url": "git+https://github.com/devparikh0506/stripe-payment-nestjs.git",
+    "directory": "packages/sdk"
   },
   "keywords": [
     "axios",
@@ -14,11 +15,14 @@
     "openapi-generator",
     "paykit"
   ],
-  "license": "Unlicense",
+  "license": "MIT",
   "main": "./dist/index.js",
   "typings": "./dist/index.d.ts",
   "module": "./dist/esm/index.js",
   "sideEffects": false,
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsc && tsc -p tsconfig.esm.json",
     "prepare": "npm run build"
