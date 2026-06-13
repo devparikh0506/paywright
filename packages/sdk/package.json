@@ -1,5 +1,5 @@
 {
-  "name": "paykit",
+  "name": "@dev_parikh/paykit",
   "version": "1.0.0",
   "description": "TypeScript client SDK for the paykit payment service",
   "author": "Dev Parikh",

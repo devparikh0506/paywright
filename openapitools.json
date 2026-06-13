@@ -9,7 +9,7 @@
         "inputSpec": "packages/template/openapi.json",
         "output": "packages/sdk",
         "additionalProperties": {
-          "npmName": "paykit",
+          "npmName": "@dev_parikh/paykit",
           "npmVersion": "1.0.0",
           "supportsES6": true,
           "withSeparateModelsAndApi": true,
