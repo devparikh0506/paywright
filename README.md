@@ -1,5 +1,9 @@
 # create-stripe-nest-app
 
+[![npm: create-stripe-nest-app](https://img.shields.io/npm/v/create-stripe-nest-app?logo=npm&label=create-stripe-nest-app)](https://www.npmjs.com/package/create-stripe-nest-app)
+[![npm: @dev_parikh/paykit](https://img.shields.io/npm/v/@dev_parikh/paykit?logo=npm&label=%40dev_parikh%2Fpaykit)](https://www.npmjs.com/package/@dev_parikh/paykit)
+[![license: MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
+
 Scaffold a production-ready **Stripe payment microservice** in one command.
 
 ```bash
