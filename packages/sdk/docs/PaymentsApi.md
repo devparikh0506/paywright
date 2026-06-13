@@ -20,7 +20,7 @@ All URIs are relative to *http://localhost*
 import {
     PaymentsApi,
     Configuration
-} from 'paykit';
+} from '@dev_parikh/paykit';
 
 const configuration = new Configuration();
 const apiInstance = new PaymentsApi(configuration);
@@ -45,7 +45,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[x-api-key](../README.md#x-api-key)
 
 ### HTTP request headers
 
@@ -71,7 +71,7 @@ import {
     PaymentsApi,
     Configuration,
     CreatePaymentDto
-} from 'paykit';
+} from '@dev_parikh/paykit';
 
 const configuration = new Configuration();
 const apiInstance = new PaymentsApi(configuration);
@@ -96,7 +96,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[x-api-key](../README.md#x-api-key)
 
 ### HTTP request headers
 
@@ -121,7 +121,7 @@ No authorization required
 import {
     PaymentsApi,
     Configuration
-} from 'paykit';
+} from '@dev_parikh/paykit';
 
 const configuration = new Configuration();
 const apiInstance = new PaymentsApi(configuration);
@@ -146,7 +146,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[x-api-key](../README.md#x-api-key)
 
 ### HTTP request headers
 
@@ -171,7 +171,7 @@ No authorization required
 import {
     PaymentsApi,
     Configuration
-} from 'paykit';
+} from '@dev_parikh/paykit';
 
 const configuration = new Configuration();
 const apiInstance = new PaymentsApi(configuration);
@@ -196,7 +196,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[x-api-key](../README.md#x-api-key)
 
 ### HTTP request headers
 
@@ -221,7 +221,7 @@ No authorization required
 import {
     PaymentsApi,
     Configuration
-} from 'paykit';
+} from '@dev_parikh/paykit';
 
 const configuration = new Configuration();
 const apiInstance = new PaymentsApi(configuration);
@@ -246,7 +246,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[x-api-key](../README.md#x-api-key)
 
 ### HTTP request headers
 

@@ -19,7 +19,7 @@ All URIs are relative to *http://localhost*
 import {
     SubscriptionsApi,
     Configuration
-} from 'paykit';
+} from '@dev_parikh/paykit';
 
 const configuration = new Configuration();
 const apiInstance = new SubscriptionsApi(configuration);
@@ -44,7 +44,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[x-api-key](../README.md#x-api-key)
 
 ### HTTP request headers
 
@@ -70,7 +70,7 @@ import {
     SubscriptionsApi,
     Configuration,
     CreateSubscriptionDto
-} from 'paykit';
+} from '@dev_parikh/paykit';
 
 const configuration = new Configuration();
 const apiInstance = new SubscriptionsApi(configuration);
@@ -95,7 +95,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[x-api-key](../README.md#x-api-key)
 
 ### HTTP request headers
 
@@ -120,7 +120,7 @@ No authorization required
 import {
     SubscriptionsApi,
     Configuration
-} from 'paykit';
+} from '@dev_parikh/paykit';
 
 const configuration = new Configuration();
 const apiInstance = new SubscriptionsApi(configuration);
@@ -145,7 +145,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[x-api-key](../README.md#x-api-key)
 
 ### HTTP request headers
 
@@ -170,7 +170,7 @@ No authorization required
 import {
     SubscriptionsApi,
     Configuration
-} from 'paykit';
+} from '@dev_parikh/paykit';
 
 const configuration = new Configuration();
 const apiInstance = new SubscriptionsApi(configuration);
@@ -195,7 +195,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[x-api-key](../README.md#x-api-key)
 
 ### HTTP request headers
 

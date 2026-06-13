@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { CreateSubscriptionDto } from 'paykit';
+import { CreateSubscriptionDto } from '@dev_parikh/paykit';
 
 const instance: CreateSubscriptionDto = {
     customerId,

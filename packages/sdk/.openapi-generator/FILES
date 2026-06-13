@@ -1,7 +1,5 @@
 .gitignore
 .npmignore
-.openapi-generator-ignore
-README.md
 api.ts
 api/customers-api.ts
 api/health-api.ts
@@ -39,6 +37,5 @@ models/health-check200-response-info-value.ts
 models/health-check200-response.ts
 models/index.ts
 models/update-customer-dto.ts
-package.json
 tsconfig.esm.json
 tsconfig.json

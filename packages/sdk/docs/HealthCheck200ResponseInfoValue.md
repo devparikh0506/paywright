@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { HealthCheck200ResponseInfoValue } from 'paykit';
+import { HealthCheck200ResponseInfoValue } from '@dev_parikh/paykit';
 
 const instance: HealthCheck200ResponseInfoValue = {
     status,

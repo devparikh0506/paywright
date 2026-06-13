@@ -16,7 +16,7 @@ All URIs are relative to *http://localhost*
 import {
     HealthApi,
     Configuration
-} from 'paykit';
+} from '@dev_parikh/paykit';
 
 const configuration = new Configuration();
 const apiInstance = new HealthApi(configuration);

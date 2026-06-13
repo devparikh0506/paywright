@@ -21,7 +21,7 @@ import {
     CustomersApi,
     Configuration,
     CreateCustomerDto
-} from 'paykit';
+} from '@dev_parikh/paykit';
 
 const configuration = new Configuration();
 const apiInstance = new CustomersApi(configuration);
@@ -46,7 +46,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[x-api-key](../README.md#x-api-key)
 
 ### HTTP request headers
 
@@ -71,7 +71,7 @@ No authorization required
 import {
     CustomersApi,
     Configuration
-} from 'paykit';
+} from '@dev_parikh/paykit';
 
 const configuration = new Configuration();
 const apiInstance = new CustomersApi(configuration);
@@ -96,7 +96,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[x-api-key](../README.md#x-api-key)
 
 ### HTTP request headers
 
@@ -121,7 +121,7 @@ No authorization required
 import {
     CustomersApi,
     Configuration
-} from 'paykit';
+} from '@dev_parikh/paykit';
 
 const configuration = new Configuration();
 const apiInstance = new CustomersApi(configuration);
@@ -139,7 +139,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[x-api-key](../README.md#x-api-key)
 
 ### HTTP request headers
 
@@ -164,7 +164,7 @@ No authorization required
 import {
     CustomersApi,
     Configuration
-} from 'paykit';
+} from '@dev_parikh/paykit';
 
 const configuration = new Configuration();
 const apiInstance = new CustomersApi(configuration);
@@ -189,7 +189,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[x-api-key](../README.md#x-api-key)
 
 ### HTTP request headers
 
@@ -215,7 +215,7 @@ import {
     CustomersApi,
     Configuration,
     UpdateCustomerDto
-} from 'paykit';
+} from '@dev_parikh/paykit';
 
 const configuration = new Configuration();
 const apiInstance = new CustomersApi(configuration);
@@ -243,7 +243,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[x-api-key](../README.md#x-api-key)
 
 ### HTTP request headers
 

@@ -1,6 +1,6 @@
 {
   "name": "@dev_parikh/paykit",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "TypeScript client SDK for the paykit payment service",
   "author": "Dev Parikh",
   "repository": {

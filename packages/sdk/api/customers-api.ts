@@ -52,6 +52,9 @@ export const CustomersApiAxiosParamCreator = function (configuration?: Configura
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication x-api-key required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -87,6 +90,9 @@ export const CustomersApiAxiosParamCreator = function (configuration?: Configura
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication x-api-key required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -115,6 +121,9 @@ export const CustomersApiAxiosParamCreator = function (configuration?: Configura
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication x-api-key required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
 
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -148,6 +157,9 @@ export const CustomersApiAxiosParamCreator = function (configuration?: Configura
             const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication x-api-key required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
 
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -184,6 +196,9 @@ export const CustomersApiAxiosParamCreator = function (configuration?: Configura
             const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication x-api-key required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
 

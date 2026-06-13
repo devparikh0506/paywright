@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { CreatePlanDto } from 'paykit';
+import { CreatePlanDto } from '@dev_parikh/paykit';
 
 const instance: CreatePlanDto = {
     name,

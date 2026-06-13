@@ -51,6 +51,9 @@ export const SubscriptionsApiAxiosParamCreator = function (configuration?: Confi
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication x-api-key required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -82,6 +85,9 @@ export const SubscriptionsApiAxiosParamCreator = function (configuration?: Confi
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication x-api-key required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -118,6 +124,9 @@ export const SubscriptionsApiAxiosParamCreator = function (configuration?: Confi
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication x-api-key required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -149,6 +158,9 @@ export const SubscriptionsApiAxiosParamCreator = function (configuration?: Confi
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication x-api-key required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
 
             if (customerId !== undefined) {
                 localVarQueryParameter['customerId'] = customerId;

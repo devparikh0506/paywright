@@ -17,7 +17,7 @@ All URIs are relative to *http://localhost*
 import {
     InvoicesApi,
     Configuration
-} from 'paykit';
+} from '@dev_parikh/paykit';
 
 const configuration = new Configuration();
 const apiInstance = new InvoicesApi(configuration);
@@ -42,7 +42,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[x-api-key](../README.md#x-api-key)
 
 ### HTTP request headers
 
@@ -67,7 +67,7 @@ No authorization required
 import {
     InvoicesApi,
     Configuration
-} from 'paykit';
+} from '@dev_parikh/paykit';
 
 const configuration = new Configuration();
 const apiInstance = new InvoicesApi(configuration);
@@ -92,7 +92,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[x-api-key](../README.md#x-api-key)
 
 ### HTTP request headers
 

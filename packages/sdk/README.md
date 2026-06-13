@@ -18,11 +18,8 @@ npm install @dev_parikh/paykit
 import { Configuration, CustomersApi } from '@dev_parikh/paykit';
 
 const config = new Configuration({
-  basePath: process.env.PAYKIT_URL, // your deployment, e.g. https://payments.acme.internal
-  baseOptions: {
-    // The service authenticates every request with the x-api-key header.
-    headers: { 'x-api-key': process.env.PAYKIT_API_KEY },
-  },
+  basePath: process.env.PAYKIT_URL,   // your deployment, e.g. https://payments.acme.internal
+  apiKey: process.env.PAYKIT_API_KEY, // sent automatically as the x-api-key header
 });
 
 const customers = new CustomersApi(config);
@@ -32,16 +29,25 @@ const { data: customer } = await customers.customersCreate({
 });
 ```
 
-### Authentication — read this
+### Authentication
 
-The `x-api-key` header **must** be set via `baseOptions.headers` as shown above. Do **not** rely on the `apiKey` field of `Configuration` — the current OpenAPI spec doesn't mark operations as secured, so that field is ignored and no key is sent. Setting the header in `baseOptions` applies it to every request and always works. (See [Known limitations](#known-limitations).)
+Set `apiKey` in `Configuration` and the SDK attaches it as the `x-api-key` header on every protected request. The public routes (`/health`, `/metrics`, `/webhooks/stripe`) are unsecured and send no key.
+
+`apiKey` also accepts a function, for keys resolved at call time:
+
+```ts
+const config = new Configuration({
+  basePath: process.env.PAYKIT_URL,
+  apiKey: () => loadKeyFromVault(),
+});
+```
 
 ## Configuration
 
 | Option | Type | Description |
 |--------|------|-------------|
 | `basePath` | `string` | Base URL of your paykit deployment (no trailing slash) |
-| `baseOptions.headers` | `object` | Per-request axios options; set `x-api-key` here |
+| `apiKey` | `string \| (name: string) => string` | Your service API key; sent as the `x-api-key` header |
 
 A single instance can be shared across all API classes:
 
@@ -53,7 +59,7 @@ import {
 
 const config = new Configuration({
   basePath: process.env.PAYKIT_URL,
-  baseOptions: { headers: { 'x-api-key': process.env.PAYKIT_API_KEY } },
+  apiKey: process.env.PAYKIT_API_KEY,
 });
 
 const customers     = new CustomersApi(config);
@@ -169,7 +175,6 @@ The `docs/` folder is regenerated from the OpenAPI spec on every build, so it al
 
 These stem from missing annotations in the service's OpenAPI spec and will be resolved as the service adds them:
 
-- **Auth isn't auto-attached** — set `x-api-key` via `baseOptions.headers` (see above). Operations don't yet declare a security requirement.
 - **Responses are untyped** — `response.data` is currently `void`/untyped because endpoints don't declare `@ApiResponse` types. Requests are fully typed; cast the response if you need a shape today.
 - **List endpoints take no typed query params** — pagination/filter params aren't in the spec yet; pass them via `baseOptions.params` if needed.
 

@@ -16,7 +16,7 @@ All URIs are relative to *http://localhost*
 import {
     WebhooksApi,
     Configuration
-} from 'paykit';
+} from '@dev_parikh/paykit';
 
 const configuration = new Configuration();
 const apiInstance = new WebhooksApi(configuration);
