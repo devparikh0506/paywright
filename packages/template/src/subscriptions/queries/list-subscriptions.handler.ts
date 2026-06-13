@@ -1,14 +1,22 @@
 import { IQueryHandler, QueryHandler } from '@nestjs/cqrs';
 import { InjectRepository } from '@nestjs/typeorm';
+import { ApiProperty } from '@nestjs/swagger';
 import { Repository } from 'typeorm';
 
 import { Subscription } from '../entities/subscription.entity';
 import { ListSubscriptionsQuery } from './list-subscriptions.query';
 
-export interface SubscriptionList {
+export class SubscriptionList {
+  @ApiProperty({ type: [Subscription] })
   data: Subscription[];
+
+  @ApiProperty()
   total: number;
+
+  @ApiProperty()
   page: number;
+
+  @ApiProperty()
   limit: number;
 }
 

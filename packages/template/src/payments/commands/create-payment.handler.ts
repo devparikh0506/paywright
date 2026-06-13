@@ -1,6 +1,7 @@
 import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
 import { NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { ApiProperty } from '@nestjs/swagger';
 import { Repository } from 'typeorm';
 
 import { Customer } from '../../customers/entities/customer.entity';
@@ -8,9 +9,12 @@ import { StripeService } from '../../stripe/stripe.service';
 import { Payment, PaymentStatus } from '../entities/payment.entity';
 import { CreatePaymentCommand } from './create-payment.command';
 
-export interface CreatePaymentResult {
+export class CreatePaymentResult {
+  @ApiProperty({ type: Payment })
   payment: Payment;
+
   /** One-time credential for the frontend to confirm the payment — never persisted */
+  @ApiProperty({ type: String, nullable: true })
   clientSecret: string | null;
 }
 

@@ -7,7 +7,7 @@
     "build": "nest build",
     "start": "node dist/main",
     "start:dev": "nest start --watch",
-    "openapi:generate": "ts-node src/generate-openapi.ts",
+    "openapi:generate": "nest build && node dist/generate-openapi",
     "test": "jest",
     "migration:generate": "typeorm-ts-node-commonjs migration:generate -d src/database/data-source.ts",
     "migration:run": "typeorm-ts-node-commonjs migration:run -d src/database/data-source.ts",

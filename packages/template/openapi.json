@@ -185,7 +185,14 @@
         },
         "responses": {
           "201": {
-            "description": ""
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Customer"
+                }
+              }
+            }
           }
         },
         "summary": "Create a customer",
@@ -200,10 +207,30 @@
       },
       "get": {
         "operationId": "Customers_list",
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "limit",
+            "required": false,
+            "in": "query",
+            "schema": {}
+          },
+          {
+            "name": "page",
+            "required": false,
+            "in": "query",
+            "schema": {}
+          }
+        ],
         "responses": {
           "200": {
-            "description": ""
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomerList"
+                }
+              }
+            }
           }
         },
         "summary": "List customers",
@@ -232,7 +259,14 @@
         ],
         "responses": {
           "200": {
-            "description": ""
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Customer"
+                }
+              }
+            }
           }
         },
         "summary": "Get a customer",
@@ -269,7 +303,14 @@
         },
         "responses": {
           "200": {
-            "description": ""
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Customer"
+                }
+              }
+            }
           }
         },
         "summary": "Update a customer",
@@ -326,7 +367,14 @@
         },
         "responses": {
           "201": {
-            "description": ""
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Plan"
+                }
+              }
+            }
           }
         },
         "summary": "Create a plan (Stripe product + price)",
@@ -344,7 +392,7 @@
         "parameters": [
           {
             "name": "activeOnly",
-            "required": true,
+            "required": false,
             "in": "query",
             "schema": {
               "type": "string"
@@ -353,7 +401,17 @@
         ],
         "responses": {
           "200": {
-            "description": ""
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Plan"
+                  }
+                }
+              }
+            }
           }
         },
         "summary": "List plans",
@@ -382,7 +440,14 @@
         ],
         "responses": {
           "200": {
-            "description": ""
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Plan"
+                }
+              }
+            }
           }
         },
         "summary": "Get a plan",
@@ -411,7 +476,14 @@
         ],
         "responses": {
           "201": {
-            "description": ""
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Plan"
+                }
+              }
+            }
           }
         },
         "summary": "Archive a plan (prices are immutable in Stripe)",
@@ -441,7 +513,14 @@
         },
         "responses": {
           "201": {
-            "description": ""
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreatePaymentResult"
+                }
+              }
+            }
           }
         },
         "summary": "Create a payment intent",
@@ -459,16 +538,35 @@
         "parameters": [
           {
             "name": "customerId",
-            "required": true,
+            "required": false,
             "in": "query",
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "limit",
+            "required": false,
+            "in": "query",
+            "schema": {}
+          },
+          {
+            "name": "page",
+            "required": false,
+            "in": "query",
+            "schema": {}
           }
         ],
         "responses": {
           "200": {
-            "description": ""
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaymentList"
+                }
+              }
+            }
           }
         },
         "summary": "List payments, optionally by customer",
@@ -497,7 +595,14 @@
         ],
         "responses": {
           "200": {
-            "description": ""
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Payment"
+                }
+              }
+            }
           }
         },
         "summary": "Get a payment",
@@ -526,7 +631,14 @@
         ],
         "responses": {
           "201": {
-            "description": ""
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Payment"
+                }
+              }
+            }
           }
         },
         "summary": "Cancel an uncaptured payment",
@@ -555,7 +667,14 @@
         ],
         "responses": {
           "201": {
-            "description": ""
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Payment"
+                }
+              }
+            }
           }
         },
         "summary": "Refund a succeeded payment",
@@ -585,7 +704,14 @@
         },
         "responses": {
           "201": {
-            "description": ""
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateSubscriptionResult"
+                }
+              }
+            }
           }
         },
         "summary": "Create a subscription (first charge confirmed by frontend)",
@@ -603,16 +729,35 @@
         "parameters": [
           {
             "name": "customerId",
-            "required": true,
+            "required": false,
             "in": "query",
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "limit",
+            "required": false,
+            "in": "query",
+            "schema": {}
+          },
+          {
+            "name": "page",
+            "required": false,
+            "in": "query",
+            "schema": {}
           }
         ],
         "responses": {
           "200": {
-            "description": ""
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SubscriptionList"
+                }
+              }
+            }
           }
         },
         "summary": "List subscriptions, optionally by customer",
@@ -641,7 +786,14 @@
         ],
         "responses": {
           "200": {
-            "description": ""
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Subscription"
+                }
+              }
+            }
           }
         },
         "summary": "Get a subscription",
@@ -668,7 +820,14 @@
         ],
         "responses": {
           "200": {
-            "description": ""
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Subscription"
+                }
+              }
+            }
           }
         },
         "summary": "Cancel a subscription immediately",
@@ -700,6 +859,7 @@
             "description": ""
           }
         },
+        "summary": "Verify → dedup → enqueue → 200. No business logic here: Stripe\nretries anything that doesn't get a 2xx within ~10s, so the heavy\nwork happens in the background processor.",
         "tags": [
           "Webhooks"
         ]
@@ -711,7 +871,14 @@
         "parameters": [],
         "responses": {
           "200": {
-            "description": ""
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           }
         },
         "tags": [
@@ -725,16 +892,35 @@
         "parameters": [
           {
             "name": "customerId",
-            "required": true,
+            "required": false,
             "in": "query",
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "limit",
+            "required": false,
+            "in": "query",
+            "schema": {}
+          },
+          {
+            "name": "page",
+            "required": false,
+            "in": "query",
+            "schema": {}
           }
         ],
         "responses": {
           "200": {
-            "description": ""
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InvoiceList"
+                }
+              }
+            }
           }
         },
         "summary": "List invoices, optionally by customer",
@@ -763,7 +949,14 @@
         ],
         "responses": {
           "200": {
-            "description": ""
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Invoice"
+                }
+              }
+            }
           }
         },
         "summary": "Get an invoice",
@@ -800,6 +993,7 @@
         "properties": {
           "email": {
             "type": "string",
+            "format": "email",
             "example": "user@example.com"
           },
           "name": {
@@ -815,11 +1009,77 @@
           "email"
         ]
       },
+      "Customer": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "stripeCustomerId": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "phone": {
+            "type": "string",
+            "nullable": true
+          },
+          "createdAt": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "updatedAt": {
+            "format": "date-time",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "stripeCustomerId",
+          "email",
+          "name",
+          "phone",
+          "createdAt",
+          "updatedAt"
+        ]
+      },
+      "CustomerList": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Customer"
+            }
+          },
+          "total": {
+            "type": "number"
+          },
+          "page": {
+            "type": "number"
+          },
+          "limit": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "data",
+          "total",
+          "page",
+          "limit"
+        ]
+      },
       "UpdateCustomerDto": {
         "type": "object",
         "properties": {
           "email": {
             "type": "string",
+            "format": "email",
             "example": "new@example.com"
           },
           "name": {
@@ -841,20 +1101,23 @@
           },
           "amount": {
             "type": "number",
+            "minimum": 1,
             "example": 1900,
             "description": "Amount in smallest currency unit (cents)"
           },
           "currency": {
             "type": "string",
+            "minLength": 3,
+            "maxLength": 3,
             "example": "usd"
           },
           "interval": {
-            "type": "string",
-            "example": "month",
             "enum": [
               "month",
               "year"
-            ]
+            ],
+            "type": "string",
+            "example": "month"
           }
         },
         "required": [
@@ -864,20 +1127,78 @@
           "interval"
         ]
       },
+      "Plan": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "stripeProductId": {
+            "type": "string"
+          },
+          "stripePriceId": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "amount": {
+            "type": "number",
+            "description": "Smallest currency unit (cents) — never floating point"
+          },
+          "currency": {
+            "type": "string"
+          },
+          "interval": {
+            "enum": [
+              "year",
+              "month"
+            ],
+            "type": "string"
+          },
+          "active": {
+            "type": "boolean"
+          },
+          "createdAt": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "updatedAt": {
+            "format": "date-time",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "stripeProductId",
+          "stripePriceId",
+          "name",
+          "amount",
+          "currency",
+          "interval",
+          "active",
+          "createdAt",
+          "updatedAt"
+        ]
+      },
       "CreatePaymentDto": {
         "type": "object",
         "properties": {
           "customerId": {
             "type": "string",
+            "format": "uuid",
             "description": "Local customer id (UUID)"
           },
           "amount": {
             "type": "number",
+            "minimum": 1,
             "example": 4900,
             "description": "Amount in smallest currency unit (cents)"
           },
           "currency": {
             "type": "string",
+            "minLength": 3,
+            "maxLength": 3,
             "example": "usd"
           },
           "idempotencyKey": {
@@ -891,19 +1212,115 @@
           "currency"
         ]
       },
+      "Payment": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "stripePaymentIntentId": {
+            "type": "string"
+          },
+          "customerId": {
+            "type": "string"
+          },
+          "amount": {
+            "type": "number",
+            "description": "Smallest currency unit (cents)"
+          },
+          "currency": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "requires_payment_method",
+              "requires_confirmation",
+              "requires_action",
+              "processing",
+              "succeeded",
+              "canceled",
+              "refunded"
+            ],
+            "type": "string"
+          },
+          "createdAt": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "updatedAt": {
+            "format": "date-time",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "stripePaymentIntentId",
+          "customerId",
+          "amount",
+          "currency",
+          "status",
+          "createdAt",
+          "updatedAt"
+        ]
+      },
+      "CreatePaymentResult": {
+        "type": "object",
+        "properties": {
+          "payment": {
+            "$ref": "#/components/schemas/Payment"
+          },
+          "clientSecret": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "required": [
+          "payment",
+          "clientSecret"
+        ]
+      },
+      "PaymentList": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Payment"
+            }
+          },
+          "total": {
+            "type": "number"
+          },
+          "page": {
+            "type": "number"
+          },
+          "limit": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "data",
+          "total",
+          "page",
+          "limit"
+        ]
+      },
       "CreateSubscriptionDto": {
         "type": "object",
         "properties": {
           "customerId": {
             "type": "string",
+            "format": "uuid",
             "description": "Local customer id (UUID)"
           },
           "planId": {
             "type": "string",
+            "format": "uuid",
             "description": "Local plan id (UUID)"
           },
           "trialPeriodDays": {
             "type": "number",
+            "minimum": 1,
             "example": 14,
             "description": "Free trial length in days — Stripe schedules the first charge"
           },
@@ -915,6 +1332,199 @@
         "required": [
           "customerId",
           "planId"
+        ]
+      },
+      "Subscription": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "stripeSubscriptionId": {
+            "type": "string"
+          },
+          "customerId": {
+            "type": "string"
+          },
+          "planId": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "active",
+              "canceled",
+              "incomplete",
+              "incomplete_expired",
+              "trialing",
+              "past_due",
+              "unpaid"
+            ],
+            "type": "string"
+          },
+          "currentPeriodStart": {
+            "format": "date-time",
+            "type": "string",
+            "nullable": true
+          },
+          "currentPeriodEnd": {
+            "format": "date-time",
+            "type": "string",
+            "nullable": true
+          },
+          "trialEnd": {
+            "format": "date-time",
+            "type": "string",
+            "nullable": true
+          },
+          "createdAt": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "updatedAt": {
+            "format": "date-time",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "stripeSubscriptionId",
+          "customerId",
+          "planId",
+          "status",
+          "currentPeriodStart",
+          "currentPeriodEnd",
+          "trialEnd",
+          "createdAt",
+          "updatedAt"
+        ]
+      },
+      "CreateSubscriptionResult": {
+        "type": "object",
+        "properties": {
+          "subscription": {
+            "$ref": "#/components/schemas/Subscription"
+          },
+          "clientSecret": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "required": [
+          "subscription",
+          "clientSecret"
+        ]
+      },
+      "SubscriptionList": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Subscription"
+            }
+          },
+          "total": {
+            "type": "number"
+          },
+          "page": {
+            "type": "number"
+          },
+          "limit": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "data",
+          "total",
+          "page",
+          "limit"
+        ]
+      },
+      "Invoice": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "stripeInvoiceId": {
+            "type": "string"
+          },
+          "customerId": {
+            "type": "string",
+            "nullable": true
+          },
+          "stripeCustomerId": {
+            "type": "string",
+            "nullable": true
+          },
+          "stripeSubscriptionId": {
+            "type": "string",
+            "nullable": true
+          },
+          "amountDue": {
+            "type": "number"
+          },
+          "amountPaid": {
+            "type": "number"
+          },
+          "currency": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "hostedInvoiceUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "createdAt": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "updatedAt": {
+            "format": "date-time",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "stripeInvoiceId",
+          "customerId",
+          "stripeCustomerId",
+          "stripeSubscriptionId",
+          "amountDue",
+          "amountPaid",
+          "currency",
+          "status",
+          "hostedInvoiceUrl",
+          "createdAt",
+          "updatedAt"
+        ]
+      },
+      "InvoiceList": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Invoice"
+            }
+          },
+          "total": {
+            "type": "number"
+          },
+          "page": {
+            "type": "number"
+          },
+          "limit": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "data",
+          "total",
+          "page",
+          "limit"
         ]
       }
     }

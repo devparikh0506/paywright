@@ -1,14 +1,22 @@
 import { IQueryHandler, QueryHandler } from '@nestjs/cqrs';
 import { InjectRepository } from '@nestjs/typeorm';
+import { ApiProperty } from '@nestjs/swagger';
 import { Repository } from 'typeorm';
 
 import { Invoice } from '../entities/invoice.entity';
 import { ListInvoicesQuery } from './list-invoices.query';
 
-export interface InvoiceList {
+export class InvoiceList {
+  @ApiProperty({ type: [Invoice] })
   data: Invoice[];
+
+  @ApiProperty()
   total: number;
+
+  @ApiProperty()
   page: number;
+
+  @ApiProperty()
   limit: number;
 }
 

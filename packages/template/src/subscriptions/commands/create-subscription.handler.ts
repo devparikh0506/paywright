@@ -1,6 +1,7 @@
 import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
 import { ConflictException, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { ApiProperty } from '@nestjs/swagger';
 import Stripe from 'stripe';
 import { Repository } from 'typeorm';
 
@@ -13,12 +14,15 @@ import {
 } from '../entities/subscription.entity';
 import { CreateSubscriptionCommand } from './create-subscription.command';
 
-export interface CreateSubscriptionResult {
+export class CreateSubscriptionResult {
+  @ApiProperty({ type: Subscription })
   subscription: Subscription;
+
   /**
    * Confirm the first invoice's payment on the frontend with this —
    * null when a trial defers the first charge. Never persisted.
    */
+  @ApiProperty({ type: String, nullable: true })
   clientSecret: string | null;
 }
 

@@ -1,14 +1,22 @@
 import { IQueryHandler, QueryHandler } from '@nestjs/cqrs';
 import { InjectRepository } from '@nestjs/typeorm';
+import { ApiProperty } from '@nestjs/swagger';
 import { Repository } from 'typeorm';
 
 import { Customer } from '../entities/customer.entity';
 import { ListCustomersQuery } from './list-customers.query';
 
-export interface CustomerList {
+export class CustomerList {
+  @ApiProperty({ type: [Customer] })
   data: Customer[];
+
+  @ApiProperty()
   total: number;
+
+  @ApiProperty()
   page: number;
+
+  @ApiProperty()
   limit: number;
 }
 
