@@ -1,0 +1,35 @@
+{
+  "name": "create-paywright-app",
+  "version": "0.1.1",
+  "description": "Scaffold a production-ready Stripe payment microservice (NestJS + TypeORM + BullMQ)",
+  "keywords": ["paywright", "stripe", "nestjs", "payments", "scaffold", "create-app"],
+  "license": "MIT",
+  "author": "Dev Parikh",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devparikh0506/stripe-payment-nestjs.git"
+  },
+  "bin": {
+    "create-paywright-app": "dist/index.js"
+  },
+  "files": ["dist", "template"],
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "tsc",
+    "sync-template": "node scripts/sync-template.js",
+    "prepack": "npm run build && npm run sync-template"
+  },
+  "dependencies": {
+    "commander": "^12.1.0",
+    "fs-extra": "^11.2.0",
+    "inquirer": "^8.2.6"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^11.0.4",
+    "@types/inquirer": "^8.2.10",
+    "@types/node": "^22.15.0",
+    "typescript": "^5.8.0"
+  }
+}

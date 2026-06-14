@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "ES2023",
+    "lib": ["ES2023"],
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": true,
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "paths": {
+      // stripe v22 ships correct merged class+namespace types only in its
+      // ESM declarations; the CJS ones (picked via "main") drop the API
+      // namespace. Types-only override — runtime still loads the CJS build.
+      "stripe": [
+        "./node_modules/stripe/esm/stripe.esm.node.d.ts",
+        "../../node_modules/stripe/esm/stripe.esm.node.d.ts"
+      ]
+    },
+    "incremental": true,
+    "skipLibCheck": true,
+    "strictNullChecks": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitAny": true,
+    "noFallthroughCasesInSwitch": true
+  },
+  "exclude": ["node_modules", "dist"]
+}

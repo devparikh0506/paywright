@@ -1,0 +1,39 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Type-check template
+        run: npx tsc --noEmit
+        working-directory: packages/template
+
+      - name: Run template tests
+        run: npm test --workspace packages/template
+
+      - name: Build CLI
+        run: npm run build --workspace packages/cli
+
+      - name: Smoke-test scaffolder
+        run: |
+          npm run sync-template --workspace packages/cli
+          node packages/cli/dist/index.js smoke-test-app --yes --skip-install
+          test -f smoke-test-app/package.json
+          test -f smoke-test-app/.gitignore
+          test -f smoke-test-app/.env.example
